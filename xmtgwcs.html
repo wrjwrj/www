@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新媒体5个岗位匹配度测试</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            display: none;
+            background-color: white;
+        }
+        .question.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .option {
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+        }
+        .option:hover {
+            background-color: #e9ecef;
+            transform: translateX(5px);
+        }
+        .result {
+            display: none;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2, h3 {
+            color: #34495e;
+        }
+        .progress {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 20px;
+            text-align: center;
+            color: #666;
+            font-weight: bold;
+        }
+        .intro {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>新媒体5个岗位匹配度测试</h1>
+        
+        <div class="intro">
+            <p><strong>测试说明：</strong></p>
+            <ol>
+                <li>请根据你的<strong>第一直觉、真实感受和过往经验</strong>来回答。</li>
+                <li>每题选择一个<strong>最符合你</strong>的选项。</li>
+            </ol>
+        </div>
+
+        <div class="progress">进度：第 <span id="currentQuestion">1</span>/8 题</div>
+
+        <div id="question1" class="question active">
+            <h3>1. 刷抖音/小红书时，你最爱看啥？</h3>
+            <div class="option" onclick="selectOption('A', 2)">A. 神反转短剧、电影解说</div>
+            <div class="option" onclick="selectOption('B', 3)">B. 扎心金句、评论区神回复</div>
+            <div class="option" onclick="selectOption('C', 4)">C. 酷炫运镜、创意剪辑</div>
+            <div class="option" onclick="selectOption('D', 5)">D. 爆款活动、网红直播间</div>
+            <div class="option" onclick="selectOption('E', 6)">E. 行业大佬搞钱分析</div>
+        </div>
+
+        <div id="question2" class="question">
+            <h3>2. 追完爆款短剧，你第一反应是？</h3>
+            <div class="option" onclick="selectOption('A', 7)">A. 立马想：这剧情我能编得更狗血！</div>
+            <div class="option" onclick="selectOption('B', 7)">B. 截图金句台词，存进文案库！</div>
+            <div class="option" onclick="selectOption('C', 7)">C. 研究它的转场咋拍的？</div>
+            <div class="option" onclick="selectOption('D', 7)">D. 算算它靠流量赚了多少钱？</div>
+            <div class="option" onclick="selectOption('E', 7)">E. 分析它从哪引流来的观众？</div>
+        </div>
+
+        <div id="question3" class="question">
+            <h3>3. 看到一句扎心文案，你会？</h3>
+            <div class="option" onclick="selectOption('A', 7)">A. 脑补出完整短视频剧本！</div>
+            <div class="option" onclick="selectOption('B', 7)">B. 马上仿写3条发朋友圈！</div>
+            <div class="option" onclick="selectOption('C', 7)">C. 想给它配个更绝的画面！</div>
+            <div class="option" onclick="selectOption('D', 7)">D. 发到群里测试大家反应！</div>
+            <div class="option" onclick="selectOption('E', 7)">E. 琢磨它带货能转化多少？</div>
+        </div>
+
+        <div id="question4" class="question">
+            <h3>4. 看到炸裂的剪辑特效，你更想？</h3>
+            <div class="option" onclick="selectOption('A', 7)">A. 根据画面写个故事脚本！</div>
+            <div class="option" onclick="selectOption('B', 7)">B. 给视频改个更燃的标题！</div>
+            <div class="option" onclick="selectOption('C', 7)">C. 立刻用剪映模仿拍同款！</div>
+            <div class="option" onclick="selectOption('D', 7)">D. 研究它怎么蹭上的热点？</div>
+            <div class="option" onclick="selectOption('E', 7)">E. 算算这制作成本值不值？</div>
+        </div>
+
+        <div id="question5" class="question">
+            <h3>5. 刷到网红爆款活动，你关注？</h3>
+            <div class="option" onclick="selectOption('A', 7)">A. 活动剧情能不能拍成视频？</div>
+            <div class="option" onclick="selectOption('B', 7)">B. 它的宣传文案怎么写噱头？</div>
+            <div class="option" onclick="selectOption('C', 7)">C. 海报和视频设计真吸睛！</div>
+            <div class="option" onclick="selectOption('D', 7)">D. 立马参与！看用户咋互动！</div>
+            <div class="option" onclick="selectOption('E', 7)">E. 拆解它用了哪些推广渠道？</div>
+        </div>
+
+        <div id="question6" class="question">
+            <h3>6. 看完美食探店爆火案例，你想？</h3>
+            <div class="option" onclick="selectOption('A', 7)">A. 这剧本结构我能复用到美妆！</div>
+            <div class="option" onclick="selectOption('B', 7)">B. 学习它的产品卖点描述！</div>
+            <div class="option" onclick="selectOption('C', 7)">C. 研究它的食物特拍角度！</div>
+            <div class="option" onclick="selectOption('D', 7)">D. 分析它投了多少钱推流？</div>
+            <div class="option" onclick="selectOption('E', 7)">E. 算它单月变现够开分店没？</div>
+        </div>
+
+        <div id="question7" class="question">
+            <h3>7. 下面哪种成就感最让你上头？</h3>
+            <div class="option" onclick="selectOption('A', 8)">A. 你策划的剧情视频爆了！满屏弹幕"求更新"！</div>
+            <div class="option" onclick="selectOption('B', 8)">B. 你写的文案被疯狂转发！评论区夸"文案封神"！</div>
+            <div class="option" onclick="selectOption('C', 8)">C. 你拍的视频被夸"电影感"！连同行都来问参数！</div>
+            <div class="option" onclick="selectOption('D', 8)">D. 你搞的活动参与人数破万！老板当场发红包！</div>
+            <div class="option" onclick="selectOption('E', 8)">E. 你带的项目ROI超300%！全组叫你"搞钱的神"！</div>
+        </div>
+
+        <div id="question8" class="question">
+            <h3>8. 哪种工作日常让你想逃跑？</h3>
+            <div class="option" onclick="showResult()">A. 剧本被甲方改了18版最后用初稿</div>
+            <div class="option" onclick="showResult()">B. 憋到头秃也写不出满意标题</div>
+            <div class="option" onclick="showResult()">C. 拍一天素材发现内存卡没格式化</div>
+            <div class="option" onclick="showResult()">D. 活动没人参加还收到差评轰炸</div>
+            <div class="option" onclick="showResult()">E. 项目卡在财务审批眼看要超期</div>
+        </div>
+
+        <div id="result" class="result">
+            <h2>测试结果</h2>
+            <div id="resultContent"></div>
+        </div>
+    </div>
+
+    <script>
+        let answers = {
+            'A': 0, 'B': 0, 'C': 0, 'D': 0, 'E': 0
+        };
+
+        function selectOption(option, nextQuestion) {
+            answers[option]++;
+            document.querySelector('.question.active').classList.remove('active');
+            document.getElementById('question' + nextQuestion).classList.add('active');
+            document.getElementById('currentQuestion').textContent = nextQuestion;
+        }
+
+        function showResult() {
+            let maxCount = Math.max(answers['A'], answers['B'], answers['C'], answers['D'], answers['E']);
+            let result = '';
+
+            if (answers['A'] === maxCount) {
+                result = `
+                    <h3>你是「脑洞制造机」→ 编导岗天选之人！</h3>
+                    <p><strong>你的优势：</strong>想创意！写剧本！策划让人上头的内容！</p>
+                `;
+            } else if (answers['B'] === maxCount) {
+                result = `
+                    <h3>你是「文字狙击手」→ 文案岗扛把子！</h3>
+                    <p><strong>你的优势：</strong>写！写！写！标题、金句、短视频文案、产品卖点… 网感天赋极强！！</p>
+                `;
+            } else if (answers['C'] === maxCount) {
+                result = `
+                    <h3>你是「视觉魔法师」→ 拍剪岗手艺人！</h3>
+                    <p><strong>你的优势：</strong>有超强的艺术天赋和审美能力！！拍视频！剪片子！调色调！研究酷炫运镜和BGM！让内容"好看"是你的信仰！</p>
+                `;
+            } else if (answers['D'] === maxCount) {
+                result = `
+                    <h3>你是「流量永动机」→ 运营岗搞事王！</h3>
+                    <p><strong>你的优势：</strong>你有极强的策划运营天赋！！！搞活动！撩用户！盯数据！管社群！把内容"推出去"、把人"引进来"！</p>
+                `;
+            } else if (answers['E'] === maxCount) {
+                result = `
+                    <h3>你是「搞钱指挥官」→ 操盘手潜力股！</h3>
+                    <p><strong>你的优势：</strong>你有极强的逻辑与数据天赋！！！定目标，管预算！带节奏！看大盘数据！算投入产出比！！你的大局观强🧩，脑子清楚会算账！能把碎片拼成搞钱地图！！！</p>
+                `;
+            }
+
+            document.querySelector('.question.active').classList.remove('active');
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('resultContent').innerHTML = result;
+            document.querySelector('.progress').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
